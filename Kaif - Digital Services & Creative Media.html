@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kaif (kaif.si) — High-Impact AI Creative, Digital Solutions & Media Production</title>
+  <meta name="description" content="Kaif (kaif.si) is a modern digital solutions company delivering high-converting AI video ads, M STORE digital products, domain investments, and Sudanese creative media production." />
+  
+  <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              dark: '#060B13',
+              navy: '#0A1120',
+              surface: '#0F172A',
+              card: 'rgba(15, 23, 42, 0.75)',
+              border: '#1E293B',
+              teal: '#0D9488',
+              accent: '#14B8A6',
+              cyan: '#06B6D4',
+              glow: '#0D948820'
+            }
+          },
+          animation: {
+            'blob': 'blob 10s infinite',
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+          keyframes: {
+            blob: {
+              '0%': { transform: 'translate(0px, 0px) scale(1)' },
+              '33%': { transform: 'translate(30px, -40px) scale(1.08)' },
+              '66%': { transform: 'translate(-20px, 20px) scale(0.95)' },
+              '100%': { transform: 'translate(0px, 0px) scale(1)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #060B13;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1E293B;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #0D9488;
+    }
+
+    /* Ambient noise & grid overlays */
+    .bg-grid-pattern {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+    
+    .glass-card {
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .glass-card:hover {
+      border-color: rgba(20, 184, 166, 0.35);
+      box-shadow: 0 10px 30px -10px rgba(13, 148, 136, 0.2);
+    }
+
+    /* Interactive button shimmer */
+    .shimmer-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(60deg, transparent 30%, rgba(255,255,255,0.15) 50%, transparent 70%);
+      transform: rotate(30deg);
+      transition: all 0.75s ease-out;
+      pointer-events: none;
+    }
+    .shimmer-btn:hover::after {
+      left: 100%;
+      top: 100%;
+    }
+  </style>
+</head>
+
+<body class="bg-brand-dark text-slate-100 font-sans antialiased selection:bg-teal-500 selection:text-white relative overflow-x-hidden min-h-screen">
+
+  <!-- Toast Notification Container -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 pointer-events-none transition-all duration-300 flex items-center gap-3 px-5 py-3.5 rounded-xl bg-slate-900/95 border border-teal-500/40 shadow-2xl backdrop-blur-md text-sm text-slate-100">
+    <i data-lucide="check-circle-2" class="w-5 h-5 text-teal-400"></i>
+    <span id="toast-message">Copied to clipboard</span>
+  </div>
+
+  <!-- Ambient background glow elements -->
+  <div class="fixed inset-0 bg-grid-pattern pointer-events-none z-0"></div>
+  <div class="fixed top-[-10%] left-[-10%] w-[550px] h-[550px] rounded-full bg-teal-500/10 filter blur-[120px] pointer-events-none animate-blob"></div>
+  <div class="fixed top-[30%] right-[-10%] w-[600px] h-[600px] rounded-full bg-cyan-600/10 filter blur-[140px] pointer-events-none animate-blob" style="animation-delay: 3s;"></div>
+  <div class="fixed bottom-[-10%] left-[20%] w-[500px] h-[500px] rounded-full bg-teal-800/10 filter blur-[130px] pointer-events-none animate-blob" style="animation-delay: 6s;"></div>
+
+  <!-- Navigation Header -->
+  <header class="sticky top-0 z-40 w-full border-b border-slate-800/80 bg-brand-dark/85 backdrop-blur-xl transition-all duration-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-teal-500 rounded-lg p-1">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-teal-500 via-teal-400 to-cyan-400 flex items-center justify-center shadow-lg shadow-teal-500/20 group-hover:scale-105 transition-transform duration-200">
+          <span class="font-display font-black text-xl text-slate-950 tracking-tighter">K</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-display font-extrabold text-2xl tracking-tight text-white flex items-center gap-1.5">
+            Kaif
+            <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
+          </span>
+          <span class="text-[10px] font-semibold text-teal-400/90 tracking-widest uppercase">kaif.si</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="#services" class="hover:text-teal-400 transition-colors py-1">Services & Pricing</a>
+        <a href="#why-kaif" class="hover:text-teal-400 transition-colors py-1">Why Kaif</a>
+        <a href="#how-it-works" class="hover:text-teal-400 transition-colors py-1">Workflow</a>
+        <a href="#faq" class="hover:text-teal-400 transition-colors py-1">FAQ</a>
+      </nav>
+
+      <!-- Header CTAs -->
+      <div class="hidden sm:flex items-center gap-3">
+        <button onclick="copyEmail()" class="text-xs font-semibold px-3.5 py-2 rounded-lg bg-slate-800/70 hover:bg-slate-800 text-slate-300 border border-slate-700/60 hover:border-slate-600 transition-all flex items-center gap-1.5" title="Copy Support Email">
+          <i data-lucide="copy" class="w-3.5 h-3.5 text-teal-400"></i>
+          <span>support@kaif.si</span>
+        </button>
+        <a href="#contact" class="shimmer-btn text-xs font-bold px-4 py-2.5 rounded-lg bg-gradient-to-r from-teal-500 to-cyan-500 text-slate-950 hover:brightness-110 shadow-md shadow-teal-500/20 transition-all flex items-center gap-1.5">
+          <span>Start Project</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <div class="flex items-center gap-2 md:hidden">
+        <button id="mobile-menu-toggle" aria-label="Toggle Navigation Menu" class="p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white focus:outline-none">
+          <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-slate-800 bg-brand-navy/95 backdrop-blur-2xl px-6 py-6 transition-all duration-300">
+      <nav class="flex flex-col gap-4 text-base font-medium text-slate-300">
+        <a href="#services" class="hover:text-teal-400 py-1" onclick="toggleMobileMenu()">Services & Pricing</a>
+        <a href="#why-kaif" class="hover:text-teal-400 py-1" onclick="toggleMobileMenu()">Why Choose Kaif</a>
+        <a href="#how-it-works" class="hover:text-teal-400 py-1" onclick="toggleMobileMenu()">Workflow</a>
+        <a href="#faq" class="hover:text-teal-400 py-1" onclick="toggleMobileMenu()">FAQ</a>
+        <div class="pt-4 border-t border-slate-800 flex flex-col gap-3">
+          <button onclick="copyEmail(); toggleMobileMenu();" class="w-full text-center py-2.5 rounded-lg bg-slate-800/80 border border-slate-700 text-sm font-semibold text-teal-300 flex items-center justify-center gap-2">
+            <i data-lucide="copy" class="w-4 h-4"></i> Copy support@kaif.si
+          </button>
+          <a href="#contact" onclick="toggleMobileMenu()" class="w-full text-center py-2.5 rounded-lg bg-gradient-to-r from-teal-500 to-cyan-500 text-slate-950 font-bold text-sm shadow-lg shadow-teal-500/20">
+            Contact Team
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="relative z-10">
+
+    <!-- Hero Section -->
+    <section class="relative pt-16 pb-20 md:pt-24 md:pb-32 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        
+        <!-- Live Status Pill -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-teal-500/30 text-xs font-medium text-teal-300 mb-8 backdrop-blur-md shadow-inner">
+          <span class="flex h-2 w-2 relative">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
+          </span>
+          <span>Next-Gen Creative Studio & Digital Desk</span>
+          <span class="text-slate-500">|</span>
+          <span class="text-slate-400 font-normal">Fast, Scalable, Transparent</span>
+        </div>
+
+        <!-- Main Headline -->
+        <h1 class="font-display font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white tracking-tight leading-[1.1] max-w-5xl mx-auto">
+          High-Impact AI Creative, <br class="hidden sm:inline" />
+          <span class="bg-gradient-to-r from-teal-300 via-teal-400 to-cyan-400 bg-clip-text text-transparent">Digital Solutions</span> 
+          & Media Production.
+        </h1>
+
+        <!-- Value Proposition Description -->
+        <p class="mt-6 text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-normal">
+          Empowering startups, small businesses, and digital creators with agile AI video ads, verified M STORE digital products, strategic domain assets, and cinematic drama series.
+        </p>
+
+        <!-- CTA Buttons Group -->
+        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
+          <a href="#services" class="shimmer-btn w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-teal-500 via-teal-400 to-cyan-400 text-slate-950 font-display font-bold text-base shadow-xl shadow-teal-500/25 hover:shadow-teal-500/40 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2">
+            <span>Explore Services & Pricing</span>
+            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+          </a>
+          <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900/80 hover:bg-slate-850 border border-slate-700/80 hover:border-teal-500/50 text-slate-200 font-semibold text-base backdrop-blur-sm hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2">
+            <i data-lucide="mail" class="w-4 h-4 text-teal-400"></i>
+            <span>Contact via Email</span>
+          </a>
+        </div>
+
+        <!-- Trust Indicators & Metrics Strip -->
+        <div class="mt-16 pt-12 border-t border-slate-800/60 max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+          <div class="p-4 rounded-2xl bg-slate-900/40 border border-slate-800/60 backdrop-blur-sm text-left">
+            <div class="flex items-center gap-2 text-teal-400 mb-1">
+              <i data-lucide="zap" class="w-4 h-4"></i>
+              <span class="text-xs uppercase tracking-wider font-semibold text-slate-400">Starting At</span>
+            </div>
+            <div class="text-2xl sm:text-3xl font-display font-bold text-white">$35</div>
+            <div class="text-xs text-slate-400 mt-1">High-converting viral video ads</div>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-900/40 border border-slate-800/60 backdrop-blur-sm text-left">
+            <div class="flex items-center gap-2 text-cyan-400 mb-1">
+              <i data-lucide="clock" class="w-4 h-4"></i>
+              <span class="text-xs uppercase tracking-wider font-semibold text-slate-400">Turnaround</span>
+            </div>
+            <div class="text-2xl sm:text-3xl font-display font-bold text-white">24-48h</div>
+            <div class="text-xs text-slate-400 mt-1">Rapid digital fulfillment cycle</div>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-900/40 border border-slate-800/60 backdrop-blur-sm text-left">
+            <div class="flex items-center gap-2 text-teal-400 mb-1">
+              <i data-lucide="coins" class="w-4 h-4"></i>
+              <span class="text-xs uppercase tracking-wider font-semibold text-slate-400">Multi-Currency</span>
+            </div>
+            <div class="text-xl sm:text-2xl font-display font-bold text-white">SDG / EGP / USDT</div>
+            <div class="text-xs text-slate-400 mt-1">Regional & crypto payment options</div>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-900/40 border border-slate-800/60 backdrop-blur-sm text-left">
+            <div class="flex items-center gap-2 text-cyan-400 mb-1">
+              <i data-lucide="shield-check" class="w-4 h-4"></i>
+              <span class="text-xs uppercase tracking-wider font-semibold text-slate-400">Reliability</span>
+            </div>
+            <div class="text-2xl sm:text-3xl font-display font-bold text-white">100%</div>
+            <div class="text-xs text-slate-400 mt-1">Satisfaction & delivery warranty</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Services & Pricing Section -->
+    <section id="services" class="py-24 relative border-t border-slate-800/80 bg-brand-navy/30">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-teal-500/10 border border-teal-500/20 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4">
+            Four Core Pillars
+          </div>
+          <h2 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight">
+            Specialized Services Built for Rapid Execution
+          </h2>
+          <p class="mt-4 text-slate-400 text-base sm:text-lg">
+            Choose from agile AI marketing packages, essential digital store credits, premium web properties, and original broadcast-grade storytelling.
+          </p>
+        </div>
+
+        <!-- =================== SERVICE 1: AI VIDEO ADS =================== -->
+        <div class="mb-20">
+          <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-4 border-b border-slate-800">
+            <div>
+              <div class="flex items-center gap-3">
+                <span class="p-2.5 rounded-xl bg-teal-500/10 text-teal-400 border border-teal-500/20">
+                  <i data-lucide="sparkles" class="w-6 h-6"></i>
+                </span>
+                <div>
+                  <h3 class="font-display font-bold text-2xl sm:text-3xl text-white">1. AI Video Ads</h3>
+                  <p class="text-sm text-slate-400 mt-0.5">High-converting social video creative engineered with modern AI pipelines and viral pacing</p>
+                </div>
+              </div>
+            </div>
+            <div class="mt-4 md:mt-0 text-xs font-medium text-slate-400 flex items-center gap-2">
+              <span class="inline-block w-2 h-2 rounded-full bg-teal-400"></span> 9:16 vertical & 16:9 widescreen formats available
+            </div>
+          </div>
+
+          <!-- 3-Tier Pricing Cards for AI Video Ads -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            
+            <!-- Tier 1: Reels/TikTok -->
+            <div class="glass-card rounded-2xl p-7 flex flex-col justify-between relative group">
+              <div>
+                <div class="flex justify-between items-start mb-4">
+                  <span class="text-xs font-bold uppercase tracking-wider text-teal-400 bg-teal-500/10 px-2.5 py-1 rounded-md border border-teal-500/20">
+                    Starter
+                  </span>
+                  <span class="text-xs text-slate-400 font-medium">24-48h turnaround</span>
+                </div>
+                <h4 class="font-display font-bold text-xl text-white">Reels & TikTok Ad</h4>
+                <p class="text-sm text-slate-300 mt-2">Engineered specifically for short attention spans, algorithm retention, and click-through rates.</p>
+                
+                <div class="mt-6 mb-6">
+                  <div class="flex items-baseline gap-1">
+                    <span class="text-4xl font-display font-extrabold text-white">$35</span>
+                    <span class="text-slate-400 text-sm">/ single video</span>
+                  </div>
+                  <span class="text-[11px] text-slate-400">Equivalent in SDG / EGP / USDT accepted</span>
+                </div>
+
+                <ul class="space-y-3 text-sm text-slate-300 border-t border-slate-800/80 pt-6">
+                  <li class="flex items-center gap-2.5">
+                    <i data-lucide="check" class="w-4 h-4 text-teal-400 shrink-0"></i>
+                    <span>9:16 Vertical format optimized</span>
+                  </li>
+                  <li class="flex items-center gap-2.5">
+                    <i data-lucide="check" class="w-4 h-4 text-teal-400 shrink-0"></i>
+                    <span>Viral hook & retention scripting</span>
+                  </li>
+                  <li class="flex items-center gap-2.5">
+                    <i data-lucide="check" class="w-4 h-4 text-teal-400 shrink-0"></i>
+                    <span>Dynamic kinetic auto-captions</span>
+                  </li>
+                  <li class="flex items-center gap-2.5">
+                    <i data-lucide="check" class="w-4 h-4 text-teal-400 shrink-0"></i>
+                    <span>Trending background audio sync</span>
+                  </li>
+                  <li class="flex items-center gap-2.5">
+                    <i data-lucide="check" class="w-4 h-4 text-teal-400 shrink-0"></i>
+                    <span>1 Revision round included</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="mt-8 pt-4">
+                <button onclick="selectPackage('AI Video Ads', 'Reels & TikTok Ad ($35)')" class="w-full py-3 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm transition-all border border-slate-700/60 flex items-center justify-center gap-2">
+                  <span>Order Reels Ad ($35)</span>
+                  <i data-lucide="arrow-right" class="w-4 h-4 text-teal-400"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Tier 2: Cinematic Brand Video (Featured) -->
+            <div class="glass-card rounded-2xl p-7 flex flex-col justify-between relative group border-teal-500/40 bg-gradient-to-b from-slate-900/90 to-slate-900/70 shadow-xl shadow-teal-500/10">
+              <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-teal-400 to-cyan-400 text-slate-950 font-bold text-xs uppercase tracking-wider px-3.5 py-1 rounded-full shadow-md">
+                Most Popular
+              </div>
+              <div>
+                <div class="flex justify-between items-start mb-4">
+                  <span class="text-xs font-bold uppercase tracking-wider text-cyan-300 bg-cyan-500/10 px-2.5 py-1 rounded-md border border-cyan-500/20">
+                    Pro Showcase
+                  </span>
+                  <span class="text-xs text-slate-400 font-medium">48-72h turnaround</span>
+                </div>
+                <h4 class="font-display font-bold text-xl text-white">Cinematic Brand Ad</h4>
+                <p class="text-sm text-slate-300 mt-2">Studio-grade generative visuals paired with sound architecture for luxury or tech positioning.</p>
+                
+                <div class="mt-6 mb-6">
+                  <div class="flex items-baseline gap-1">
+                    <span class="text-4xl font-display font-extrabold text-white">$80</span>
+                    <span class="text-slate-400 text-sm">/ premium deliverable</span>
+                  </div>
+                  <span class="text-[11px] text-teal-300/90 font-medium">Includes 4K master + multi-aspect cuts</span>
+                </div>
+
+                <ul class="space-y-3 text-sm text-slate-300 border-t border-slate-800/80 pt-6">
+                  <li class="flex items-center gap-2.5">
+                    <i data-lucide="check" class="w-4 h-4 text-teal-400 shrink-0"></i>
+                    <span>4K AI-synthesized cinematic imagery</span>
+                  </li>
+                  <li class="flex items-center gap-2.5">
+                    <i data-lucide="check" class="w-4 h-4 text-teal-400 shrink-0"></i>
+                    <span>Natural sounding multi-language studio VO</span>
+                  </li>
+                  <li class="flex items-center gap-2.5">
+                    <i data-lucide="check" class="w-4 h-4 text-teal-400 shrink-0"></i>
+                    <span>Custom foley & sound design layering</span>
+                  </li>
+                  <li class="flex items-center gap-2.5">
+                    <i data-lucide="check" class="w-4 h-4 text-teal-400 shrink-0"></i>
+                    <span>16:9 Landscape + 9:16 Story cutdown</span>
+                  </li>
+                  <li class="flex items-center gap-2.5">
+                    <i data-lucide="check" class="w-4 h-4 text-teal-400 shrink-0"></i>
+                    <span>2 Detailed revision cycles</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="mt-8 pt-4">
+                <button onclick="selectPackage('AI Video Ads', 'Cinematic Brand Ad ($80)')" class="shimmer-btn w-full py-3 px-4 rounded-xl bg-gradient-to-r from-teal-500 to-cyan-500 text-slate-950 font-bold text-sm transition-all shadow-md shadow-teal-500/20 flex items-center justify-center gap-2">
+                  <span>Order Cinematic Ad ($80)</span>
+                  <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Tier 3: Monthly Campaign -->
+            <div class="glass-card rounded-2xl p-7 flex flex-col justify-between relative group">
+              <div>
+                <div class="flex justify-between items-start mb-4">
+                  <span class="text-xs font-bold uppercase tracking-wider text-teal-400 bg-teal-500/10 px-2.5 py-1 rounded-md border border-teal-500/20">
+                    Growth Retainer
+                  </span>
+                  <span class="text-xs text-slate-400 font-medium">Weekly deliverables</span>
+                </div>
+                <h4 class="font-display font-bold text-xl text-white">Monthly Ad Campaign</h4>
+                <p class="text-sm text-slate-300 mt-2">Continuous ad testing pipeline to combat ad fatigue and scale your Meta, TikTok, or Google ROAS.</p>
+                
+                <div class="mt-6 mb-6">
+                  <div class="flex items-baseline gap-1">
+                    <span class="text-4xl font-display font-extrabold text-white">$220</span>
+                    <span class="text-slate-400 text-sm">/ month</span>
+                  </div>
+                  <span class="text-[11px] text-slate-400">Save over 30% compared to per-video rates</span>
+                </div>
+
+                <ul class="space-y-3 text-sm text-slate-300 border-t border-slate-800/80 pt-6">
+                  <li class="flex items-center gap-2.5">
+                    <i data-lucide="check" class="w-4 h-4 text-teal-400 shrink-0"></i>
+                    <span>8 High-impact video ad assets</span>
+                  </li>
+                  <li class="flex items-center gap-2.5">
+                    <i data-lucide="check" class="w-4 h-4 text-teal-400 shrink-0"></i>
+                    <span>A/B Hook variations for split-testing</span>
+                  </li>
+                  <li class="flex items-center gap-2.5">
+                    <i data-lucide="check" class="w-4 h-4 text-teal-400 shrink-0"></i>
+                    <span>Bi-weekly creative strategy alignment</span>
+                  </li>
+                  <li class="flex items-center gap-2.5">
+                    <i data-lucide="check" class="w-4 h-4 text-teal-400 shrink-0"></i>
+                    <span>Priority rendering & dedicated editor</span>
+                  </li>
+                  <li class="flex items-center gap-2.5">
+                    <i data-lucide="check" class="w-4 h-4 text-teal-400 shrink-0"></i>
+                    <span>Full commercial broadcast license</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="mt-8 pt-4">
+                <button onclick="selectPackage('AI Video Ads', 'Monthly Ad Campaign ($220/mo)')" class="w-full py-3 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm transition-all border border-slate-700/60 flex items-center justify-center gap-2">
+                  <span>Start Monthly Campaign ($220)</span>
+                  <i data-lucide="arrow-right" class="w-4 h-4 text-teal-400"></i>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- =================== SERVICE 2: M STORE DIGITAL STORE =================== -->
+        <div class="mb-20">
+          <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-4 border-b border-slate-800">
+            <div>
+              <div class="flex items-center gap-3">
+                <span class="p-2.5 rounded-xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+                  <i data-lucide="shopping-bag" class="w-6 h-6"></i>
+                </span>
+                <div>
+                  <h3 class="font-display font-bold text-2xl sm:text-3xl text-white">2. M STORE Digital Store</h3>
+                  <p class="text-sm text-slate-400 mt-0.5">Instant-delivery digital goods, essential software subscriptions, and regional currency settlement</p>
+                </div>
+              </div>
+            </div>
+            <div class="mt-4 md:mt-0 text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-800/80 text-teal-300 border border-slate-700 flex items-center gap-2">
+              <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-teal-400 animate-spin" style="animation-duration: 8s;"></i>
+              <span>Live Rates for SDG · EGP · USDT</span>
+            </div>
+          </div>
+
+          <!-- M Store Feature Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <!-- Item 1: Game Cards -->
+            <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
+              <div>
+                <div class="w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center text-teal-400 mb-4 border border-slate-700/60">
+                  <i data-lucide="gamepad-2" class="w-6 h-6"></i>
+                </div>
+                <h4 class="font-display font-bold text-lg text-white">Gaming Gift Cards</h4>
+                <p class="text-xs text-slate-400 mt-1 mb-4 leading-relaxed">
+                  Instant codes for international gaming ecosystems without payment blocks.
+                </p>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300">PlayStation</span>
+                  <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300">Steam</span>
+                  <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300">Xbox</span>
+                  <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300">PUBG Mobile</span>
+                  <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300">Razer Gold</span>
+                </div>
+              </div>
+              <div class="mt-6 pt-4 border-t border-slate-800/70">
+                <button onclick="selectPackage('M STORE', 'Gaming Gift Cards')" class="w-full text-xs font-semibold py-2.5 px-3 rounded-lg bg-slate-800/90 hover:bg-slate-750 text-slate-200 hover:text-white border border-slate-700 transition-all flex items-center justify-center gap-1.5">
+                  <span>Inquire Availability</span>
+                  <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Item 2: Software Subscriptions -->
+            <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
+              <div>
+                <div class="w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center text-cyan-400 mb-4 border border-slate-700/60">
+                  <i data-lucide="cpu" class="w-6 h-6"></i>
+                </div>
+                <h4 class="font-display font-bold text-lg text-white">Software Subscriptions</h4>
+                <p class="text-xs text-slate-400 mt-1 mb-4 leading-relaxed">
+                  Access cutting-edge creative and productivity suites with localized payment.
+                </p>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300">ChatGPT Plus</span>
+                  <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300">Midjourney</span>
+                  <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300">Adobe Creative</span>
+                  <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300">Canva Pro</span>
+                  <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300">Office 365</span>
+                </div>
+              </div>
+              <div class="mt-6 pt-4 border-t border-slate-800/70">
+                <button onclick="selectPackage('M STORE', 'Software & AI Subscriptions')" class="w-full text-xs font-semibold py-2.5 px-3 rounded-lg bg-slate-800/90 hover:bg-slate-750 text-slate-200 hover:text-white border border-slate-700 transition-all flex items-center justify-center gap-1.5">
+                  <span>Activate Subscription</span>
+                  <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Item 3: VPN & Bill Payments -->
+            <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
+              <div>
+                <div class="w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center text-teal-400 mb-4 border border-slate-700/60">
+                  <i data-lucide="shield" class="w-6 h-6"></i>
+                </div>
+                <h4 class="font-display font-bold text-lg text-white">VPN & Bill Payments</h4>
+                <p class="text-xs text-slate-400 mt-1 mb-4 leading-relaxed">
+                  High-speed global routing and swift regional utility settlements without border delays.
+                </p>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300">NordVPN / Express</span>
+                  <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300">Dedicated IP</span>
+                  <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300">Utility Bills</span>
+                  <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300">Telecom Recharge</span>
+                </div>
+              </div>
+              <div class="mt-6 pt-4 border-t border-slate-800/70">
+                <button onclick="selectPackage('M STORE', 'VPN & Bill Payments')" class="w-full text-xs font-semibold py-2.5 px-3 rounded-lg bg-slate-800/90 hover:bg-slate-750 text-slate-200 hover:text-white border border-slate-700 transition-all flex items-center justify-center gap-1.5">
+                  <span>Request Service</span>
+                  <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Item 4: Multi-Currency Exchange Desk -->
+            <div class="glass-card rounded-2xl p-6 flex flex-col justify-between border-teal-500/30">
+              <div>
+                <div class="w-12 h-12 rounded-xl bg-teal-500/10 flex items-center justify-center text-teal-400 mb-4 border border-teal-500/30">
+                  <i data-lucide="arrow-left-right" class="w-6 h-6"></i>
+                </div>
+                <h4 class="font-display font-bold text-lg text-white">Currency Desk</h4>
+                <p class="text-xs text-slate-400 mt-1 mb-4 leading-relaxed">
+                  Fast, trusted peer settlement helping businesses bridge Sudanese Pound, Egyptian Pound, and Crypto.
+                </p>
+                <div class="space-y-2 text-xs">
+                  <div class="flex items-center justify-between p-2 rounded bg-slate-800/80 border border-slate-700/60">
+                    <span class="font-medium text-slate-200">SDG (Sudanese Pound)</span>
+                    <span class="text-teal-400 font-semibold">Bankak Support</span>
+                  </div>
+                  <div class="flex items-center justify-between p-2 rounded bg-slate-800/80 border border-slate-700/60">
+                    <span class="font-medium text-slate-200">EGP (Egyptian Pound)</span>
+                    <span class="text-cyan-400 font-semibold">Vodafone / InstaPay</span>
+                  </div>
+                  <div class="flex items-center justify-between p-2 rounded bg-slate-800/80 border border-slate-700/60">
+                    <span class="font-medium text-slate-200">USDT (Tether)</span>
+                    <span class="text-emerald-400 font-semibold">TRC20 / BEP20</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-6 pt-4 border-t border-slate-800/70">
+                <button onclick="selectPackage('M STORE', 'Currency Exchange Desk (SDG/EGP/USDT)')" class="w-full text-xs font-semibold py-2.5 px-3 rounded-lg bg-gradient-to-r from-teal-500/20 to-cyan-500/20 hover:from-teal-500/30 hover:to-cyan-500/30 text-teal-300 border border-teal-500/40 transition-all flex items-center justify-center gap-1.5">
+                  <span>Contact Currency Desk</span>
+                  <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- =================== DUAL SECTION: DOMAIN INVESTMENT & CREATIVE MEDIA =================== -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          
+          <!-- SERVICE 3: DOMAIN INVESTMENT -->
+          <div class="glass-card rounded-2xl p-8 flex flex-col justify-between border-slate-800 hover:border-teal-500/40">
+            <div>
+              <div class="flex items-center gap-3 mb-6">
+                <span class="p-2.5 rounded-xl bg-teal-500/10 text-teal-400 border border-teal-500/20">
+                  <i data-lucide="globe" class="w-6 h-6"></i>
+                </span>
+                <div>
+                  <h3 class="font-display font-bold text-2xl text-white">3. Domain Investment</h3>
+                  <p class="text-xs text-slate-400">Digital Real Estate & Brand Asset Acquisition</p>
+                </div>
+              </div>
+
+              <p class="text-sm text-slate-300 leading-relaxed mb-6">
+                A memorable domain name is the single most valuable foundational asset for your business. Kaif actively acquires, appraises, and trades high-value tech, brandable, and category-defining domain properties.
+              </p>
+
+              <div class="space-y-3 mb-8">
+                <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 flex items-start gap-3">
+                  <i data-lucide="check-circle" class="w-4 h-4 text-teal-400 mt-1 shrink-0"></i>
+                  <div>
+                    <h5 class="text-sm font-semibold text-white">Strategic Domain Acquisition</h5>
+                    <p class="text-xs text-slate-400 mt-0.5">Stealth acquisition of dot-com and modern TLDs for emerging startups and expanding companies.</p>
+                  </div>
+                </div>
+
+                <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 flex items-start gap-3">
+                  <i data-lucide="check-circle" class="w-4 h-4 text-teal-400 mt-1 shrink-0"></i>
+                  <div>
+                    <h5 class="text-sm font-semibold text-white">Asset Valuation & Liquidation</h5>
+                    <p class="text-xs text-slate-400 mt-0.5">Accurate appraisal metrics based on market comparables, trademark safety, and search demand.</p>
+                  </div>
+                </div>
+
+                <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 flex items-start gap-3">
+                  <i data-lucide="check-circle" class="w-4 h-4 text-teal-400 mt-1 shrink-0"></i>
+                  <div>
+                    <h5 class="text-sm font-semibold text-white">Secure Escrow Transfer</h5>
+                    <p class="text-xs text-slate-400 mt-0.5">Smooth transfers executed via recognized escrow protocols with multi-currency settlement options.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-800 flex flex-col sm:flex-row gap-3">
+              <button onclick="selectPackage('Domain Investment', 'Acquire / Inquire About Premium Domains')" class="w-full py-3 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm transition-all border border-slate-700/60 flex items-center justify-center gap-2">
+                <span>Inquire Domain Inventory</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 text-teal-400"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- SERVICE 4: CREATIVE MEDIA PRODUCTION -->
+          <div class="glass-card rounded-2xl p-8 flex flex-col justify-between border-slate-800 hover:border-cyan-500/40">
+            <div>
+              <div class="flex items-center gap-3 mb-6">
+                <span class="p-2.5 rounded-xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+                  <i data-lucide="clapperboard" class="w-6 h-6"></i>
+                </span>
+                <div>
+                  <h3 class="font-display font-bold text-2xl text-white">4. Creative Media Production</h3>
+                  <p class="text-xs text-slate-400">Sudanese Drama Series & Vertical Micro-Dramas</p>
+                </div>
+              </div>
+
+              <p class="text-sm text-slate-300 leading-relaxed mb-6">
+                Bridging rich cultural narrative with modern short-form entertainment. Kaif writes, produces, and directs original Sudanese dramatic productions and vertical micro-series designed for viral mobile streaming.
+              </p>
+
+              <div class="space-y-3 mb-8">
+                <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 flex items-start gap-3">
+                  <i data-lucide="film" class="w-4 h-4 text-cyan-400 mt-1 shrink-0"></i>
+                  <div>
+                    <h5 class="text-sm font-semibold text-white">Original Sudanese Drama Series</h5>
+                    <p class="text-xs text-slate-400 mt-0.5">Episodic storytelling rooted in authentic Sudanese society, high emotional hooks, and professional cinematography.</p>
+                  </div>
+                </div>
+
+                <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 flex items-start gap-3">
+                  <i data-lucide="smartphone" class="w-4 h-4 text-cyan-400 mt-1 shrink-0"></i>
+                  <div>
+                    <h5 class="text-sm font-semibold text-white">Vertical Micro-Dramas (Shorts / Reels)</h5>
+                    <p class="text-xs text-slate-400 mt-0.5">Bite-sized cliffhanger episodes formatted natively for mobile video platforms with massive retention algorithms.</p>
+                  </div>
+                </div>
+
+                <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 flex items-start gap-3">
+                  <i data-lucide="tv" class="w-4 h-4 text-cyan-400 mt-1 shrink-0"></i>
+                  <div>
+                    <h5 class="text-sm font-semibold text-white">Brand Sponsorships & Co-Production</h5>
+                    <p class="text-xs text-slate-400 mt-0.5">Organic product placement and customized branded storytelling that viewers actually watch and remember.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-800 flex flex-col sm:flex-row gap-3">
+              <button onclick="selectPackage('Creative Media Production', 'Sponsorship & Micro-Drama Production')" class="w-full py-3 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm transition-all border border-slate-700/60 flex items-center justify-center gap-2">
+                <span>Discuss Media Production</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 text-cyan-400"></i>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Why Choose Kaif Section (Bento Grid) -->
+    <section id="why-kaif" class="py-24 relative border-t border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-teal-500/10 border border-teal-500/20 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4">
+            The Kaif Advantage
+          </div>
+          <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white tracking-tight">
+            Designed for Modern Agility & Regional Realities
+          </h2>
+          <p class="mt-4 text-slate-400 text-base sm:text-lg">
+            Traditional agencies are too slow and overpriced. Generic gig platforms lack reliability. Kaif operates as your direct, multi-disciplinary partner.
+          </p>
+        </div>
+
+        <!-- Bento Grid Structure -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- Bento Card 1: AI Speed + Human Cinema (Col span 2) -->
+          <div class="md:col-span-2 glass-card rounded-2xl p-8 relative overflow-hidden group">
+            <div class="absolute -right-12 -bottom-12 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-teal-500/20 transition-all"></div>
+            <div class="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/20 text-teal-400 flex items-center justify-center mb-6">
+              <i data-lucide="cpu" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-display font-bold text-2xl text-white mb-3">AI Velocity Meets Human Craftsmanship</h3>
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-xl">
+              We leverage proprietary generative pipelines to slash production timelines from weeks down to hours, while seasoned human directors ensure emotional resonance, flawless typography, and authentic messaging.
+            </p>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <span class="text-xs font-medium px-3 py-1.5 rounded-lg bg-slate-800/80 border border-slate-700/80 text-slate-300">Fast 24-48h Drafts</span>
+              <span class="text-xs font-medium px-3 py-1.5 rounded-lg bg-slate-800/80 border border-slate-700/80 text-slate-300">Custom Audio Engineering</span>
+              <span class="text-xs font-medium px-3 py-1.5 rounded-lg bg-slate-800/80 border border-slate-700/80 text-slate-300">Platform-Optimized Formats</span>
+            </div>
+          </div>
+
+          <!-- Bento Card 2: Multi-Currency Settlement (Col span 1) -->
+          <div class="glass-card rounded-2xl p-8 relative overflow-hidden group">
+            <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center mb-6">
+              <i data-lucide="wallet" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-display font-bold text-xl text-white mb-3">Zero Payment Friction</h3>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Never lose an opportunity due to banking barriers. Settle smoothly using Bankak (SDG), Egyptian InstaPay / Vodafone Cash (EGP), or international USDT crypto.
+            </p>
+            <div class="mt-6 pt-4 border-t border-slate-800/60 flex items-center justify-between text-xs text-teal-400 font-semibold">
+              <span>Instant Verification</span>
+              <i data-lucide="check" class="w-4 h-4"></i>
+            </div>
+          </div>
+
+          <!-- Bento Card 3: Startup Friendly Rates -->
+          <div class="glass-card rounded-2xl p-8 relative overflow-hidden group">
+            <div class="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/20 text-teal-400 flex items-center justify-center mb-6">
+              <i data-lucide="tag" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-display font-bold text-xl text-white mb-3">Transparent Rates</h3>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              No bloated agency retainers or hidden surprise fees. Video ads start at just $35 with predictable pricing across all digital and media services.
+            </p>
+          </div>
+
+          <!-- Bento Card 4: End-to-End Creative Ecosystem (Col span 2) -->
+          <div class="md:col-span-2 glass-card rounded-2xl p-8 relative overflow-hidden group">
+            <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center mb-6">
+              <i data-lucide="layers" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-display font-bold text-2xl text-white mb-3">Unified Digital & Media Ecosystem</h3>
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-xl">
+              From your marketing ad campaign to your team's software tools, domain portfolio, and viral storytelling productions, Kaif acts as a cohesive digital engine under one roof.
+            </p>
+            <div class="mt-6 flex items-center gap-4 text-xs text-slate-400">
+              <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-teal-400"></i> Single point of contact</span>
+              <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-teal-400"></i> Priority turnaround</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-24 relative border-t border-slate-800 bg-brand-navy/20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-teal-500/10 border border-teal-500/20 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4">
+            Frictionless Process
+          </div>
+          <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white tracking-tight">
+            How Working With Kaif Works
+          </h2>
+          <p class="mt-4 text-slate-400 text-base sm:text-lg">
+            A straightforward 3-step collaboration designed to get your project executed without endless meetings or bureaucratic delay.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+          
+          <!-- Step 1 -->
+          <div class="glass-card rounded-2xl p-8 relative flex flex-col justify-between">
+            <div>
+              <div class="text-5xl font-display font-black text-slate-800 mb-6 flex justify-between items-center">
+                <span>01</span>
+                <div class="w-10 h-10 rounded-xl bg-teal-500/10 border border-teal-500/30 text-teal-400 flex items-center justify-center text-lg font-bold">
+                  <i data-lucide="mouse-pointer-click" class="w-5 h-5"></i>
+                </div>
+              </div>
+              <h3 class="font-display font-bold text-xl text-white mb-2">Select Your Solution</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">
+                Pick your required service tier: an individual Reels ad ($35), cinematic production ($80), digital cards, domain inquiry, or media series sponsorship.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 text-xs font-semibold text-teal-400">
+              Clear deliverables defined upfront
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="glass-card rounded-2xl p-8 relative flex flex-col justify-between">
+            <div>
+              <div class="text-5xl font-display font-black text-slate-800 mb-6 flex justify-between items-center">
+                <span>02</span>
+                <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 flex items-center justify-center text-lg font-bold">
+                  <i data-lucide="sliders" class="w-5 h-5"></i>
+                </div>
+              </div>
+              <h3 class="font-display font-bold text-xl text-white mb-2">Brief & Rapid Production</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">
+                Send your brief or requirements via our quick inquiry tool or direct email. Our team begins generation and craft immediately, delivering drafts in 24-48 hours.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 text-xs font-semibold text-cyan-400">
+              Constant status updates
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="glass-card rounded-2xl p-8 relative flex flex-col justify-between">
+            <div>
+              <div class="text-5xl font-display font-black text-slate-800 mb-6 flex justify-between items-center">
+                <span>03</span>
+                <div class="w-10 h-10 rounded-xl bg-teal-500/10 border border-teal-500/30 text-teal-400 flex items-center justify-center text-lg font-bold">
+                  <i data-lucide="rocket" class="w-5 h-5"></i>
+                </div>
+              </div>
+              <h3 class="font-display font-bold text-xl text-white mb-2">Review, Settle & Launch</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">
+                Review your output, request any fine-tune adjustments, and settle seamlessly via SDG, EGP, or USDT. Download your 4K assets and launch your campaign.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 text-xs font-semibold text-teal-400">
+              Full commercial ownership guaranteed
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 relative border-t border-slate-800">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-16">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-teal-500/10 border border-teal-500/20 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4">
+            Got Questions?
+          </div>
+          <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white tracking-tight">
+            Frequently Asked Questions
+          </h2>
+          <p class="mt-4 text-slate-400 text-base">
+            Everything you need to know about billing, turnaround times, and ordering from Kaif.
+          </p>
+        </div>
+
+        <!-- Accordion Container -->
+        <div class="space-y-4">
+          
+          <!-- FAQ Item 1 -->
+          <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
+            <button onclick="toggleFaq(1)" class="w-full py-5 px-6 text-left flex items-center justify-between text-base font-display font-semibold text-white hover:text-teal-400 focus:outline-none transition-colors">
+              <span>How does billing and payment work with SDG, EGP, and USDT?</span>
+              <i data-lucide="chevron-down" id="faq-icon-1" class="w-5 h-5 text-slate-400 transition-transform duration-300 shrink-0 ml-4"></i>
+            </button>
+            <div id="faq-content-1" class="hidden px-6 pb-6 text-sm text-slate-300 leading-relaxed border-t border-slate-800/60 pt-4">
+              We provide localized settlement options tailored to the regional landscape. You can pay using Bank of Khartoum Bankak (SDG), Egyptian payment apps like InstaPay or Vodafone Cash (EGP), or globally via USDT (TRC-20 / BEP-20) cryptocurrency. Real-time rates are confirmed transparently prior to order execution.
+            </div>
+          </div>
+
+          <!-- FAQ Item 2 -->
+          <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
+            <button onclick="toggleFaq(2)" class="w-full py-5 px-6 text-left flex items-center justify-between text-base font-display font-semibold text-white hover:text-teal-400 focus:outline-none transition-colors">
+              <span>What is the typical turnaround time for AI Video Ads?</span>
+              <i data-lucide="chevron-down" id="faq-icon-2" class="w-5 h-5 text-slate-400 transition-transform duration-300 shrink-0 ml-4"></i>
+            </button>
+            <div id="faq-content-2" class="hidden px-6 pb-6 text-sm text-slate-300 leading-relaxed border-t border-slate-800/60 pt-4">
+              Single Reels/TikTok ads ($35) are delivered within 24 to 48 hours. Cinematic brand ads ($80) require 48 to 72 hours due to high-resolution generative rendering, multi-track audio mastering, and custom voiceover synthesis. Expedited rush turnaround is available upon request.
+            </div>
+          </div>
+
+          <!-- FAQ Item 3 -->
+          <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
+            <button onclick="toggleFaq(3)" class="w-full py-5 px-6 text-left flex items-center justify-between text-base font-display font-semibold text-white hover:text-teal-400 focus:outline-none transition-colors">
+              <span>How do I purchase digital items or software from M STORE?</span>
+              <i data-lucide="chevron-down" id="faq-icon-3" class="w-5 h-5 text-slate-400 transition-transform duration-300 shrink-0 ml-4"></i>
+            </button>
+            <div id="faq-content-3" class="hidden px-6 pb-6 text-sm text-slate-300 leading-relaxed border-t border-slate-800/60 pt-4">
+              Simply submit your inquiry through our quick contact card or email <strong class="text-teal-400">support@kaif.si</strong> specifying the subscription or game card needed. We verify instant availability, provide payment details in your preferred currency (SDG/EGP/USDT), and deliver the digital code or activation immediately after confirmation.
+            </div>
+          </div>
+
+          <!-- FAQ Item 4 -->
+          <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
+            <button onclick="toggleFaq(4)" class="w-full py-5 px-6 text-left flex items-center justify-between text-base font-display font-semibold text-white hover:text-teal-400 focus:outline-none transition-colors">
+              <span>Can Kaif produce customized micro-drama series for our brand?</span>
+              <i data-lucide="chevron-down" id="faq-icon-4" class="w-5 h-5 text-slate-400 transition-transform duration-300 shrink-0 ml-4"></i>
+            </button>
+            <div id="faq-content-4" class="hidden px-6 pb-6 text-sm text-slate-300 leading-relaxed border-t border-slate-800/60 pt-4">
+              Yes. Our Creative Media Production division specializes in developing custom narrative arcs, character casting, and vertical episodic micro-dramas. We seamlessly integrate brand products into engaging Sudanese narratives that generate organic organic shares and genuine audience engagement.
+            </div>
+          </div>
+
+          <!-- FAQ Item 5 -->
+          <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
+            <button onclick="toggleFaq(5)" class="w-full py-5 px-6 text-left flex items-center justify-between text-base font-display font-semibold text-white hover:text-teal-400 focus:outline-none transition-colors">
+              <span>How do I inquire about premium domain acquisition or trading?</span>
+              <i data-lucide="chevron-down" id="faq-icon-5" class="w-5 h-5 text-slate-400 transition-transform duration-300 shrink-0 ml-4"></i>
+            </button>
+            <div id="faq-content-5" class="hidden px-6 pb-6 text-sm text-slate-300 leading-relaxed border-t border-slate-800/60 pt-4">
+              You can contact our domain desk directly at <strong class="text-teal-400">support@kaif.si</strong> with your target name or desired industry vertical. We assist with valuation analysis, confidential owner negotiation, and secure transfer through licensed escrow platforms.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Interactive Contact & Final CTA Section -->
+    <section id="contact" class="py-24 relative border-t border-slate-800 bg-gradient-to-b from-brand-dark to-brand-navy/60">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
+          <!-- Left Column: Direct Info Card -->
+          <div class="lg:col-span-5 space-y-6">
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-teal-500/10 border border-teal-500/20 text-teal-300 text-xs font-semibold uppercase tracking-wider">
+              Get In Touch
+            </div>
+            
+            <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white tracking-tight">
+              Ready to Accelerate Your Digital Presence?
+            </h2>
+            
+            <p class="text-slate-300 text-base leading-relaxed">
+              Whether you need high-converting AI video ads, digital store fulfillment, domain brokerage, or original media production, our team is ready to deliver.
+            </p>
+
+            <!-- Direct Contact Card -->
+            <div class="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-4">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/20 text-teal-400 flex items-center justify-center shrink-0">
+                  <i data-lucide="mail" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <div class="text-xs uppercase font-semibold text-slate-400">Primary Contact Channel</div>
+                  <a href="mailto:support@kaif.si" class="text-lg font-bold text-white hover:text-teal-400 transition-colors">
+                    support@kaif.si
+                  </a>
+                </div>
+              </div>
+
+              <div class="flex gap-2 pt-2">
+                <button onclick="copyEmail()" class="flex-1 py-2.5 px-3 rounded-lg bg-slate-800 hover:bg-slate-750 text-xs font-semibold text-slate-200 border border-slate-700 transition-all flex items-center justify-center gap-2">
+                  <i data-lucide="copy" class="w-4 h-4 text-teal-400"></i>
+                  <span>Copy Email</span>
+                </button>
+                <a href="mailto:support@kaif.si" class="flex-1 py-2.5 px-3 rounded-lg bg-teal-500/10 hover:bg-teal-500/20 text-xs font-semibold text-teal-300 border border-teal-500/30 transition-all flex items-center justify-center gap-2">
+                  <i data-lucide="send" class="w-4 h-4 text-teal-400"></i>
+                  <span>Direct Mail</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Guarantee Badges -->
+            <div class="grid grid-cols-2 gap-4 pt-2">
+              <div class="p-4 rounded-xl bg-slate-900/40 border border-slate-800 flex items-center gap-3">
+                <i data-lucide="clock" class="w-5 h-5 text-teal-400 shrink-0"></i>
+                <div class="text-xs text-slate-300 font-medium">Responses within 2 to 4 hours</div>
+              </div>
+              <div class="p-4 rounded-xl bg-slate-900/40 border border-slate-800 flex items-center gap-3">
+                <i data-lucide="badge-check" class="w-5 h-5 text-cyan-400 shrink-0"></i>
+                <div class="text-xs text-slate-300 font-medium">Verified delivery assurance</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Interactive Project Inquiry Builder -->
+          <div class="lg:col-span-7 glass-card rounded-2xl p-8 border-slate-800 relative">
+            <h3 class="font-display font-bold text-xl text-white mb-2">Interactive Inquiry Builder</h3>
+            <p class="text-xs text-slate-400 mb-6">Configure your request and generate a pre-formatted message directly to our inbox.</p>
+
+            <form id="inquiry-form" onsubmit="handleInquirySubmit(event)" class="space-y-5">
+              
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Your Name / Brand</label>
+                  <input type="text" id="client-name" required placeholder="e.g. Alex / Nile Dynamics" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-all" />
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Service of Interest</label>
+                  <select id="service-select" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-white text-sm focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-all">
+                    <option value="AI Video Ads - Reels ($35)">AI Video Ads — Reels / TikTok ($35)</option>
+                    <option value="AI Video Ads - Cinematic ($80)">AI Video Ads — Cinematic Brand ($80)</option>
+                    <option value="AI Video Ads - Monthly Retainer ($220)">AI Video Ads — Monthly Campaign ($220)</option>
+                    <option value="M STORE - Gaming Cards">M STORE — Gaming Gift Cards</option>
+                    <option value="M STORE - Software Subscriptions">M STORE — Software & AI Subscriptions</option>
+                    <option value="M STORE - Currency Desk">M STORE — Currency Exchange (SDG/EGP/USDT)</option>
+                    <option value="Domain Investment">Domain Investment & Acquisition</option>
+                    <option value="Creative Media Production">Creative Media Production & Micro-Dramas</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Preferred Settlement Currency</label>
+                  <select id="currency-select" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-white text-sm focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-all">
+                    <option value="USDT (Crypto / Tether)">USDT (Tether TRC-20 / BEP-20)</option>
+                    <option value="SDG (Sudanese Pound - Bankak)">SDG (Sudanese Pound — Bankak)</option>
+                    <option value="EGP (Egyptian Pound - InstaPay/Vodafone)">EGP (Egyptian Pound — InstaPay / Vodafone)</option>
+                    <option value="USD (International Wire)">USD / International</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Desired Timeline</label>
+                  <select id="timeline-select" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-white text-sm focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-all">
+                    <option value="Immediate (24-48 Hours)">Urgent (24 - 48 Hours)</option>
+                    <option value="This Week (3-5 Days)">Standard (3 - 5 Days)</option>
+                    <option value="Flexible / Ongoing">Flexible / Strategic Planning</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Project Brief / Specific Notes</label>
+                <textarea id="project-notes" rows="3" placeholder="Describe your product, target audience, or specific requirements..." class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-all"></textarea>
+              </div>
+
+              <div class="pt-2 flex flex-col sm:flex-row items-center gap-3">
+                <button type="submit" class="shimmer-btn w-full sm:flex-1 py-3.5 px-6 rounded-xl bg-gradient-to-r from-teal-500 via-teal-400 to-cyan-400 text-slate-950 font-display font-bold text-sm shadow-lg shadow-teal-500/20 hover:brightness-110 transition-all flex items-center justify-center gap-2">
+                  <i data-lucide="mail-check" class="w-4 h-4"></i>
+                  <span>Generate & Send via Email</span>
+                </button>
+                <button type="button" onclick="copyInquiryText()" class="w-full sm:w-auto py-3.5 px-5 rounded-xl bg-slate-800 hover:bg-slate-750 text-slate-200 text-sm font-semibold border border-slate-700 transition-all flex items-center justify-center gap-2" title="Copy pre-formatted text">
+                  <i data-lucide="copy" class="w-4 h-4 text-teal-400"></i>
+                  <span>Copy Text</span>
+                </button>
+              </div>
+
+              <p class="text-[11px] text-slate-500 text-center sm:text-left">
+                Clicking "Generate & Send" launches your default email client with your pre-formatted project inquiry addressed directly to <strong class="text-slate-400">support@kaif.si</strong>.
+              </p>
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Professional Footer -->
+  <footer class="border-t border-slate-800/80 bg-brand-dark relative z-10 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-slate-800/60">
+        
+        <!-- Brand Info -->
+        <div class="md:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-teal-500 to-cyan-400 flex items-center justify-center text-slate-950 font-display font-extrabold text-lg">
+              K
+            </div>
+            <span class="font-display font-bold text-2xl text-white">Kaif</span>
+            <span class="text-xs px-2 py-0.5 rounded-full bg-slate-800 text-teal-400 border border-teal-500/30">kaif.si</span>
+          </div>
+          <p class="text-slate-400 text-sm max-w-sm leading-relaxed">
+            A multi-service digital enterprise engineering high-converting AI video advertisements, instant digital product distribution, strategic domain trading, and Sudanese cinematic media.
+          </p>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs text-slate-300">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>All Digital Desks Operational</span>
+          </div>
+        </div>
+
+        <!-- Quick Jump Links -->
+        <div class="space-y-3">
+          <h4 class="font-display font-bold text-sm uppercase tracking-wider text-white">Navigation</h4>
+          <ul class="space-y-2 text-sm text-slate-400">
+            <li><a href="#services" class="hover:text-teal-400 transition-colors">Services & Pricing</a></li>
+            <li><a href="#why-kaif" class="hover:text-teal-400 transition-colors">Why Choose Kaif</a></li>
+            <li><a href="#how-it-works" class="hover:text-teal-400 transition-colors">Workflow & Steps</a></li>
+            <li><a href="#faq" class="hover:text-teal-400 transition-colors">Frequently Asked Questions</a></li>
+            <li><a href="#contact" class="hover:text-teal-400 transition-colors">Contact Support</a></li>
+          </ul>
+        </div>
+
+        <!-- Settlement & Contact -->
+        <div class="space-y-3">
+          <h4 class="font-display font-bold text-sm uppercase tracking-wider text-white">Contact & Settlement</h4>
+          <p class="text-xs text-slate-400">Direct inquiries:</p>
+          <a href="mailto:support@kaif.si" class="inline-block text-sm font-semibold text-teal-400 hover:underline">
+            support@kaif.si
+          </a>
+          <div class="pt-2 text-xs text-slate-400">
+            <p class="font-medium text-slate-300 mb-1">Supported Currencies:</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700/60">SDG</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700/60">EGP</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700/60">USDT</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        <div>
+          &copy; 2026 Kaif (kaif.si). All rights reserved. Built for high performance and rapid creative scale.
+        </div>
+        <div class="flex items-center gap-6">
+          <span class="hover:text-slate-400 transition-colors">Privacy & Security</span>
+          <span class="hover:text-slate-400 transition-colors">Terms of Service</span>
+          <a href="mailto:support@kaif.si" class="hover:text-teal-400 transition-colors">support@kaif.si</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    // Initialize Lucide Icons
+    document.addEventListener("DOMContentLoaded", () => {
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    });
+
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const isHidden = menu.classList.contains('hidden');
+      if (isHidden) {
+        menu.classList.remove('hidden');
+      } else {
+        menu.classList.add('hidden');
+      }
+    }
+
+    const menuToggleBtn = document.getElementById('mobile-menu-toggle');
+    if (menuToggleBtn) {
+      menuToggleBtn.addEventListener('click', toggleMobileMenu);
+    }
+
+    // Toast Notification utility
+    let toastTimeout = null;
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-message');
+      toastMsg.textContent = message;
+      
+      toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      if (toastTimeout) clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+        toast.classList.remove('translate-y-0', 'opacity-100');
+      }, 3500);
+    }
+
+    // Robust Clipboard Copy Function
+    function copyEmail() {
+      const email = 'support@kaif.si';
+      const tempInput = document.createElement('input');
+      tempInput.style.position = 'absolute';
+      tempInput.style.left = '-9999px';
+      tempInput.value = email;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      
+      try {
+        const successful = document.execCommand('copy');
+        if (successful) {
+          showToast('Copied support@kaif.si to clipboard!');
+        } else {
+          showToast('Email: support@kaif.si');
+        }
+      } catch (err) {
+        showToast('Email: support@kaif.si');
+      }
+      document.body.removeChild(tempInput);
+    }
+
+    // Quick Select Package handler from pricing buttons
+    function selectPackage(serviceCategory, packageName) {
+      const serviceSelect = document.getElementById('service-select');
+      const contactSection = document.getElementById('contact');
+      
+      // Auto-select or customize option
+      let found = false;
+      for (let i = 0; i < serviceSelect.options.length; i++) {
+        if (serviceSelect.options[i].text.includes(packageName) || serviceSelect.options[i].value.includes(packageName)) {
+          serviceSelect.selectedIndex = i;
+          found = true;
+          break;
+        }
+      }
+
+      if (!found) {
+        // Fallback match category
+        for (let i = 0; i < serviceSelect.options.length; i++) {
+          if (serviceSelect.options[i].text.toLowerCase().includes(serviceCategory.toLowerCase())) {
+            serviceSelect.selectedIndex = i;
+            break;
+          }
+        }
+      }
+
+      // Smooth scroll to contact
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+      showToast(`Selected: ${packageName}. Fill your details below!`);
+    }
+
+    // Interactive FAQ Accordion Toggle
+    function toggleFaq(id) {
+      const content = document.getElementById(`faq-content-${id}`);
+      const icon = document.getElementById(`faq-icon-${id}`);
+      const isHidden = content.classList.contains('hidden');
+
+      // Close all other accordions
+      for (let i = 1; i <= 5; i++) {
+        const otherContent = document.getElementById(`faq-content-${i}`);
+        const otherIcon = document.getElementById(`faq-icon-${i}`);
+        if (otherContent && i !== id) {
+          otherContent.classList.add('hidden');
+          if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
+        }
+      }
+
+      // Toggle current
+      if (isHidden) {
+        content.classList.remove('hidden');
+        if (icon) icon.style.transform = 'rotate(180deg)';
+      } else {
+        content.classList.add('hidden');
+        if (icon) icon.style.transform = 'rotate(0deg)';
+      }
+    }
+
+    // Build Formatted Inquiry Text
+    function buildInquiryPayload() {
+      const name = document.getElementById('client-name').value.trim() || 'Prospective Client';
+      const service = document.getElementById('service-select').value;
+      const currency = document.getElementById('currency-select').value;
+      const timeline = document.getElementById('timeline-select').value;
+      const notes = document.getElementById('project-notes').value.trim() || 'No additional notes provided.';
+
+      const subject = `[Project Inquiry - kaif.si] ${service} - ${name}`;
+      const body = `Hello Kaif Team,
+
+I would like to inquire about working together on a project.
+
+Here are my project details:
+---------------------------------------------
+Client / Business Name: ${name}
+Requested Service: ${service}
+Preferred Settlement: ${currency}
+Timeline: ${timeline}
+
+Brief / Notes:
+${notes}
+---------------------------------------------
+
+Please let me know the next steps and availability.
+
+Best regards,
+${name}`;
+
+      return { subject, body };
+    }
+
+    // Copy Inquiry Text to Clipboard
+    function copyInquiryText() {
+      const { subject, body } = buildInquiryPayload();
+      const combined = `Subject: ${subject}\n\n${body}`;
+
+      const tempTextArea = document.createElement('textarea');
+      tempTextArea.style.position = 'absolute';
+      tempTextArea.style.left = '-9999px';
+      tempTextArea.value = combined;
+      document.body.appendChild(tempTextArea);
+      tempTextArea.select();
+
+      try {
+        document.execCommand('copy');
+        showToast('Inquiry brief copied to clipboard!');
+      } catch (e) {
+        showToast('Unable to auto-copy. Please write to support@kaif.si');
+      }
+      document.body.removeChild(tempTextArea);
+    }
+
+    // Handle Form Submit & Trigger mailto:
+    function handleInquirySubmit(event) {
+      event.preventDefault();
+      const { subject, body } = buildInquiryPayload();
+      
+      const mailtoUrl = `mailto:support@kaif.si?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      
+      showToast('Launching email client for support@kaif.si...');
+      window.location.href = mailtoUrl;
+    }
+  </script>
+</body>
+</html>
